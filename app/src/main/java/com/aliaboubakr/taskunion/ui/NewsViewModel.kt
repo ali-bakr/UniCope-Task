@@ -22,7 +22,7 @@ class NewsViewModel(
 
     fun getBreakingNews()=viewModelScope.launch {
         breakingNews.postValue(Resource.Loading())
-        val response=newsReposatory.getBreakingNews()
+        val response=newsReposatory.getBreakingNews("all-sections","30")
 
         breakingNews.postValue(handleBreakingNewsResponse(response))
     }

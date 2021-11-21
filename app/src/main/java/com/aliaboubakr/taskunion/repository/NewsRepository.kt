@@ -7,6 +7,6 @@ import com.aliaboubakr.taskunion.api.RetrofitInstance
 
 class NewsRepository(
 ) {
-    suspend fun getBreakingNews()=
-       RetrofitInstance.api.getBreakingNews()
+    suspend fun getBreakingNews(section:String,period:String)=
+       RetrofitInstance.api.getBreakingNews(section,period)
 }

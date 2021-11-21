@@ -1,11 +1,13 @@
 package com.aliaboubakr.taskunion.api
 
 import com.aliaboubakr.taskunion.models.NewsResponseX
+import com.aliaboubakr.taskunion.util.Constants.Companion.API_KEY
 
 import retrofit2.Response
 
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface NewsApi {
@@ -17,9 +19,14 @@ interface NewsApi {
         ,"Lang:en",
         "DeviceType:Android")
 
-    @GET("mostviewed/all-sections/30.json?api-key=kjWL3IMsOTCUgfZWnsq9HJix6bGqMjGS")
+    @GET("mostviewed/{section}/{period}.json")
     suspend fun getBreakingNews(
-
+        @Path("section")
+        section:String,
+        @Path("period")
+        period:String,
+@Query("api-key")
+apikey:String=API_KEY
     ):Response<NewsResponseX>
 
 }
