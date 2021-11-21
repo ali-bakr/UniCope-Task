@@ -1,0 +1,2 @@
+rootProject.name = "UnionCope Task"
+include ':app'
